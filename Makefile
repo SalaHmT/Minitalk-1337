@@ -1,8 +1,18 @@
+# **************************************************************************** #
+#                                                                              #
+#                                                         :::      ::::::::    #
+#    Makefile                                           :+:      :+:    :+:    #
+#                                                     +:+ +:+         +:+      #
+#    By: shamsate <marvin@42.fr>                    +#+  +:+       +#+         #
+#                                                 +#+#+#+#+#+   +#+            #
+#    Created: 2023/03/29 21:58:37 by shamsate          #+#    #+#              #
+#    Updated: 2023/03/29 21:58:39 by shamsate         ###   ########.fr        #
+#                                                                              #
+# **************************************************************************** #
+
 NAME_C = client
 
 NAME_S = server
-
-
 
 CC = cc
 
@@ -12,31 +22,29 @@ RM = rm -rf
 
 CFLAGS = -Wall -Wextra -Werror
 
-SRC = src
-
 SRCS = $(src)/client.c \
-       $(src)/server.c \
-       $(src)/minitalk_dependency.c \
-       
+		$(src)/server.c \
+		$(src)/minitalk.dependency.c \
+
 OBJS = (SRCS:.c=.o)
 
-$(NAME_C):$(OBJ)
-		$(AR) $(NAME_C) $(OBJ)
-    
-$(NAME_S):$(OBJ)
-		$(AR) $(NAME_S) $(OBJ)
-    
-all:	$(NAME_C)$(NAME_S)
+$(NAME_C) = $(OBJS)
+			$(AR) $(NAME_C) $(OBJS)
+
+$(NAME_S) = $(OBJS)
+			$(AR) $(NAME_S) $(OBJS)
+
+all : $(NAME_C) $(NAME_S)
 
 %.o: %.c include/minitalk.h
-		$(CC) $(CFLAGS)  -c  $< -o $@
-    
-clean:
-		$(RM) $(OBJ)
+		$(cc) $(CFLAGS) -c $< -o $@
 
-fclean: clean
-		$(RM) $(NAME)
+clean :
+		$(RM)$(OBJS)
 
-re: fclean all
+fclean : clean
+		$(RM) $(NAME_C) $(NAME_S)
 
-.PHONY: all clean fclean re
+re : fclean all
+
+.PHONY : all clean fclean re
