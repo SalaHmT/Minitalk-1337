@@ -6,7 +6,7 @@
 /*   By: shamsate <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/30 22:11:09 by shamsate          #+#    #+#             */
-/*   Updated: 2023/03/30 22:11:13 by shamsate         ###   ########.fr       */
+/*   Updated: 2023/04/05 05:00:47 by shamsate         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,7 @@ void	ft_putstr(char *str);
 void	ft_putchar(char c);
 int		ft_atoi(const char *str);
 void	ft_putnbr(int n);
+void	ft_putendl(char *s);
 int		ft_checkdigit_sign(char *str);
 #endif
 

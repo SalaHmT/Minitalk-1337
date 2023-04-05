@@ -6,11 +6,11 @@
 /*   By: shamsate <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/30 22:12:03 by shamsate          #+#    #+#             */
-/*   Updated: 2023/03/30 22:12:05 by shamsate         ###   ########.fr       */
+/*   Updated: 2023/04/05 05:01:54 by shamsate         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "include/minitalk.h"
+#include "../include/minitalk.h"
 
 void	ft_putchar(char c)
 {
@@ -64,11 +64,17 @@ int	ft_checkdigit_sign(char *str)
 		i++;
 	while (str[i])
 	{
-		if(ft_isdigit(str[i]) == 0);
+		if(ft_isdigit(str[i]) == 0)
 			return (0);
 		i++;
 	}
 		return (1);
+}
+
+void	ft_putendl(char *s)
+{
+	ft_putstr(s);
+	ft_putchar('\n');
 }
 
 int	ft_atoi(const char *str)
