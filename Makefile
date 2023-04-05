@@ -6,7 +6,7 @@
 #    By: shamsate <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/03/29 21:58:37 by shamsate          #+#    #+#              #
-#    Updated: 2023/04/05 05:18:03 by shamsate         ###   ########.fr        #
+#    Updated: 2023/04/05 07:32:21 by shamsate         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -43,10 +43,10 @@ $(NAME_CLI): $(SRCS_DIR)client.o $(SRCS_DIR)minitalk.dependency.o
 $(NAME_SER): $(SRCS_DIR)server.o $(SRCS_DIR)minitalk.dependency.o
 	@$(CC) $(CFLAGS) $^ -o $@
 
-$(NAME_CLI_BONUS): $(SRCS_DIR)client_bonus.o $(SRCS_DIR)minitalk_utils.o
+$(NAME_CLI_BONUS): $(SRCS_DIR)client_bonus.o $(SRCS_DIR)minitalk.dependency.o
 	@$(CC) $(CFLAGS) $^ -o $@
 
-$(NAME_SER_BONUS): $(SRCS_DIR)server_bonus.o $(SRCS_DIR)minitalk_utils.o
+$(NAME_SER_BONUS): $(SRCS_DIR)server_bonus.o $(SRCS_DIR)minitalk.dependency.o
 	@$(CC) $(CFLAGS) $^ -o $@
 
 $(SRCS_DIR)client.o: $(SRCS_DIR)client.c $(INCLUDES_DIR)minitalk.h

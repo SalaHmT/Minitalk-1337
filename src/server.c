@@ -6,7 +6,7 @@
 /*   By: shamsate <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/29 21:58:50 by shamsate          #+#    #+#             */
-/*   Updated: 2023/04/05 06:34:22 by shamsate         ###   ########.fr       */
+/*   Updated: 2023/04/05 07:18:37 by shamsate         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,28 +56,25 @@
 
 static void server_get(int sig, siginfo_t *sig_info, void *str)
 {
-    static int C_pid;
-    static int i;
-    static char c;
+    static int 			C_pid = 0;
+    static int 			i = 0;
+    static char 		c = 0;
 
-	(void )str;
+	(void)str;
 	
     if (C_pid != sig_info->si_pid)
-    {
-        C_pid = sig_info->si_pid;
-        i = 0;
-        c = 0;
-    }
-
-    i++;
-	c = c << 1 | (sig - SIGUSR1);
-
-    if (i == 8)
+	{
+    	C_pid = sig_info->si_pid;
+	}
+	c |= (sig == SIGUSR2);
+    if ((++i) == 8)
     {
         ft_putchar(c);
         c = 0;
         i = 0;
     }
+	else
+		c <<= 1;
 }
 
 int main()
@@ -92,7 +89,7 @@ int main()
     sigaction(SIGUSR1, &Sa, NULL);
     sigaction(SIGUSR2, &Sa, NULL);
 
-    while (1)
+    while (1)457918
         pause();
     return (0);
 }

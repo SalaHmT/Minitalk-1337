@@ -6,7 +6,7 @@
 /*   By: shamsate <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/29 21:58:44 by shamsate          #+#    #+#             */
-/*   Updated: 2023/04/05 06:23:59 by shamsate         ###   ########.fr       */
+/*   Updated: 2023/04/05 07:04:54 by shamsate         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,13 +20,13 @@ static void pass_char(pid_t pid, char c)
     for(i = 7; i >= 0; i--)
     {
 
-        if(c & (1 << i))
+        if(c >> i & 1)
             kill(pid, SIGUSR2);
 
         else
             kill(pid, SIGUSR1);
     
-        usleep(500);
+        usleep(100);
     }
 }
 
