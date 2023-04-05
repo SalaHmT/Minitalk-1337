@@ -6,7 +6,7 @@
 /*   By: shamsate <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/29 21:58:44 by shamsate          #+#    #+#             */
-/*   Updated: 2023/04/05 07:04:54 by shamsate         ###   ########.fr       */
+/*   Updated: 2023/04/05 08:12:15 by shamsate         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ static void pass_char(pid_t pid, char c)
         else
             kill(pid, SIGUSR1);
     
-        usleep(100);
+        usleep(500);
     }
 }
 
