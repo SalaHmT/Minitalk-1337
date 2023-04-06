@@ -6,7 +6,7 @@
 #    By: shamsate <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/03/29 21:58:37 by shamsate          #+#    #+#              #
-#    Updated: 2023/04/05 08:12:48 by shamsate         ###   ########.fr        #
+#    Updated: 2023/04/06 02:21:37 by shamsate         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -38,22 +38,25 @@ all: $(NAME_C) $(NAME_S)
 
 bonus: $(NAME_C_BONUS) $(NAME_S_BONUS)
 
-$(NAME_C): $(SRCS_DIR)client.o $(SRCS_DIR)minitalk.dependency.o
+$(NAME_C): $(SRCS_DIR)client.o $(SRCS_DIR)minitalk.dependency.o $(SRCS_DIR)minitalk.dependenncy.o
 	@$(CC) $(CFLAGS) $^ -o $@
 
-$(NAME_S): $(SRCS_DIR)server.o $(SRCS_DIR)minitalk.dependency.o
+$(NAME_S): $(SRCS_DIR)server.o $(SRCS_DIR)minitalk.dependency.o $(SRCS_DIR)minitalk.dependenncy.o
 	@$(CC) $(CFLAGS) $^ -o $@
 
-$(NAME_C_BONUS): $(SRCS_DIR)client_bonus.o $(SRCS_DIR)minitalk.dependency.o
+$(NAME_C_BONUS): $(SRCS_DIR)client_bonus.o $(SRCS_DIR)minitalk.dependency.o $(SRCS_DIR)minitalk.dependenncy.o
 	@$(CC) $(CFLAGS) $^ -o $@
 
-$(NAME_S_BONUS): $(SRCS_DIR)server_bonus.o $(SRCS_DIR)minitalk.dependency.o
+$(NAME_S_BONUS): $(SRCS_DIR)server_bonus.o $(SRCS_DIR)minitalk.dependency.o $(SRCS_DIR)minitalk.dependenncy.o
 	@$(CC) $(CFLAGS) $^ -o $@
 
 $(SRCS_DIR)client.o: $(SRCS_DIR)client.c $(INCLUDES_DIR)minitalk.h
 	@$(CC) $(CFLAGS) -I $(INCLUDES_DIR) -o $@ -c $<
 
 $(SRCS_DIR)minitalk.dependency.o: $(SRCS_DIR)minitalk.dependency.c $(INCLUDES_DIR)minitalk.h
+	@$(CC) $(CFLAGS) -I $(INCLUDES_DIR) -o $@ -c $<
+
+$(SRCS_DIR)minitalk.dependenncy.o: $(SRCS_DIR)minitalk.dependenncy.c $(INCLUDES_DIR)minitalk.h
 	@$(CC) $(CFLAGS) -I $(INCLUDES_DIR) -o $@ -c $<
 
 $(SRCS_DIR)server.o: $(SRCS_DIR)server.c $(INCLUDES_DIR)minitalk.h

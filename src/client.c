@@ -6,7 +6,7 @@
 /*   By: shamsate <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/29 21:58:44 by shamsate          #+#    #+#             */
-/*   Updated: 2023/04/05 08:12:15 by shamsate         ###   ########.fr       */
+/*   Updated: 2023/04/06 03:07:04 by shamsate         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,10 +16,9 @@ static void pass_char(pid_t pid, char c)
 {
     int i;
 
-
-    for(i = 7; i >= 0; i--)
+    i = 8;
+    while ((--i) > 0)
     {
-
         if(c >> i & 1)
             kill(pid, SIGUSR2);
 
@@ -32,8 +31,8 @@ static void pass_char(pid_t pid, char c)
 
 int main(int argc, char **argv)
 {
-    pid_t pid;
-    char *str;
+    pid_t   pid;
+    char    *str;
 
     
     if(argc != 3)
@@ -42,12 +41,13 @@ int main(int argc, char **argv)
         return (1);
     }
 
-    if(!ft_checkdigit_sign(argv[1]) || (pid = ft_atoi(argv[1])) <= 0)
+     pid = ft_atoi(argv[1]);
+    if(!ft_checkdigit_sign(argv[1]) || pid <= 0)
     {
         ft_putstr("Invalid server -PID- . Please enter a positive integer.\n");
         return (1);
     }
-
+   
     str = argv[2];
     while(*str)
     {
