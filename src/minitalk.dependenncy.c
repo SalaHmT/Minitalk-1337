@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   minitalk.dependenncy.c                             :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: shamsate <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/04/07 23:50:14 by shamsate          #+#    #+#             */
+/*   Updated: 2023/04/07 23:50:18 by shamsate         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "../include/minitalk.h"
 
 int	ft_checkdigit_sign(char *str)
@@ -5,19 +17,18 @@ int	ft_checkdigit_sign(char *str)
 	int	i;
 
 	i = 0;
-	if(str[i] == '+')
+	if (str[i] == '+')
 		return (0);
-	if(str[i] == ('-'))
+	if (str[i] == ('-'))
 		i++;
 	while (str[i])
 	{
-		if(ft_isdigit(str[i]) == 0)
+		if (ft_isdigit(str[i]) == 0)
 			return (0);
 		i++;
 	}
-		return (1);
+	return (1);
 }
-
 
 int	ft_atoi(const char *str)
 {
@@ -48,4 +59,3 @@ int	ft_isdigit(int c)
 {
 	return (c >= '0' && c <= '9');
 }
-

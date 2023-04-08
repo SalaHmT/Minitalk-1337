@@ -1,17 +1,17 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   minitalk.h                                         :+:      :+:    :+:   */
+/*   minialk_bonus.h                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: shamsate <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/03/30 22:11:09 by shamsate          #+#    #+#             */
-/*   Updated: 2023/04/05 07:39:03 by shamsate         ###   ########.fr       */
+/*   Created: 2023/04/08 01:32:00 by shamsate          #+#    #+#             */
+/*   Updated: 2023/04/08 01:32:01 by shamsate         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef MINITALK_H
-# define MINITALK_H
+#ifndef MINITALK_BONUS_H
+# define MINITALK_BONUS_H
 
 # include <unistd.h>
 # include <stdlib.h>

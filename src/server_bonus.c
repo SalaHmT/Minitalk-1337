@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   server.c                                           :+:      :+:    :+:   */
+/*   server_bonus.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: shamsate <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/03/29 21:58:50 by shamsate          #+#    #+#             */
-/*   Updated: 2023/04/05 07:38:25 by shamsate         ###   ########.fr       */
+/*   Created: 2023/04/08 01:20:26 by shamsate          #+#    #+#             */
+/*   Updated: 2023/04/08 01:20:28 by shamsate         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,8 @@ static void	server_get(int sig, siginfo_t *sig_info, void *str)
 	c |= (sig == SIGUSR2);
 	if ((++i) == 8)
 	{
+		if (c == '\0')
+			kill(sig_info->si_pid, SIGUSR1);
 		ft_putchar(c);
 		c = 0;
 		i = 0;

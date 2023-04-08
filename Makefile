@@ -26,9 +26,9 @@ RM = rm -rf
 SRCS_DIR = src/
 INCLUDES_DIR = include/
 
-SRC = $(addprefix $(SRCS_DIR), client.c server.c minitalk.dependency.c)
+SRC = $(addprefix $(SRCS_DIR), client.c server.c minitalk.dependency.c minitalk_dependenncy.c)
 
-SRC_BONUS = $(addprefix $(SRCS_DIR), client_bonus.c server_bonus.c minitalk_utils.c)
+SRC_BONUS = $(addprefix $(SRCS_DIR), client_bonus.c server_bonus.c minitalk_dependency.c minitalk_dependenncy.c)
 
 OBJ = $(SRC:$(SRCS_DIR)%.c=$(SRCS_DIR)%.o)
 

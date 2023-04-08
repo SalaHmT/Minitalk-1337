@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   client.c                                           :+:      :+:    :+:   */
+/*   client_bonus.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: shamsate <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/03/29 21:58:44 by shamsate          #+#    #+#             */
-/*   Updated: 2023/04/06 04:22:48 by shamsate         ###   ########.fr       */
+/*   Created: 2023/04/08 01:04:15 by shamsate          #+#    #+#             */
+/*   Updated: 2023/04/08 01:04:17 by shamsate         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,12 @@ static void	pass_char(pid_t pid, char c)
 	}
 }
 
+void	recive_sig(int sig)
+{
+	if (sig == SIGUSR1)
+		ft_putstr("Received successfully :)");
+}
+
 int	main(int argc, char **argv)
 {
 	pid_t	pid;
@@ -43,6 +49,7 @@ int	main(int argc, char **argv)
 		ft_putstr("Invalid server -PID- . Please enter Valid PID .\n");
 		return (1);
 	}
+	signal(SIGUSR1, recive_sig);
 	str = argv[2];
 	while (*str)
 	{
